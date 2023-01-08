@@ -1,0 +1,49 @@
+-------------------------------------------------------------------------------
+Test set: microservices.book.multiplication.challenge.ChallengeGeneratorServiceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1 s <<< FAILURE! - in microservices.book.multiplication.challenge.ChallengeGeneratorServiceTest
+generateRandomFactorIsBetweenExpectedLimits  Time elapsed: 0.983 s  <<< ERROR!
+org.mockito.exceptions.base.MockitoException: 
+Unable to initialize @Spy annotated field 'random'.
+
+Mockito cannot mock this class: class java.util.Random.
+
+Mockito can only mock non-private & non-final classes, but the root cause of this error might be different.
+Please check the full stacktrace to understand what the issue is.
+If you're still not sure why you're getting this error, please open an issue on GitHub.
+
+
+Java               : 19
+JVM vendor name    : Oracle Corporation
+JVM vendor version : 19.0.1+10-21
+JVM name           : Java HotSpot(TM) 64-Bit Server VM
+JVM version        : 19.0.1+10-21
+JVM info           : mixed mode, sharing
+OS name            : Windows 10
+OS version         : 10.0
+
+
+Underlying exception : java.lang.IllegalStateException: Cannot access annotation property public abstract java.lang.String jdk.internal.util.random.RandomSupport$RandomGeneratorProperties.name()
+Caused by: org.mockito.exceptions.base.MockitoException: 
+
+Mockito cannot mock this class: class java.util.Random.
+
+Mockito can only mock non-private & non-final classes, but the root cause of this error might be different.
+Please check the full stacktrace to understand what the issue is.
+If you're still not sure why you're getting this error, please open an issue on GitHub.
+
+
+Java               : 19
+JVM vendor name    : Oracle Corporation
+JVM vendor version : 19.0.1+10-21
+JVM name           : Java HotSpot(TM) 64-Bit Server VM
+JVM version        : 19.0.1+10-21
+JVM info           : mixed mode, sharing
+OS name            : Windows 10
+OS version         : 10.0
+
+
+Underlying exception : java.lang.IllegalStateException: Cannot access annotation property public abstract java.lang.String jdk.internal.util.random.RandomSupport$RandomGeneratorProperties.name()
+Caused by: java.lang.IllegalStateException: Cannot access annotation property public abstract java.lang.String jdk.internal.util.random.RandomSupport$RandomGeneratorProperties.name()
+Caused by: java.lang.IllegalAccessException: class net.bytebuddy.description.annotation.AnnotationDescription$ForLoadedAnnotation cannot access interface jdk.internal.util.random.RandomSupport$RandomGeneratorProperties (in module java.base) because module java.base does not export jdk.internal.util.random to unnamed module @32709393
+
