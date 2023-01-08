@@ -12,4 +12,5 @@ import lombok.*;
 public class Challenge {
     private int factorA;
     private int factorB;
+    
 }

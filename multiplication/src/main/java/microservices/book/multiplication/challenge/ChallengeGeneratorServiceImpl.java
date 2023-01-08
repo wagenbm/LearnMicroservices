@@ -17,12 +17,16 @@ public class ChallengeGeneratorServiceImpl implements ChallengeGeneratorService 
         this.randomGenerator = new Random();
     }
 
+    private int next() {
+    	return randomGenerator.nextInt(MAXIMUM_FACTOR - MINIMUM_FACTOR) + MINIMUM_FACTOR;
+    }
+    
     protected ChallengeGeneratorServiceImpl(final RandomGenerator randomGenerator) {
         this.randomGenerator = randomGenerator;
     }
 
     @Override
     public Challenge randomChallenge() {
-        return null;
+        return new Challenge(next(), next());
     }
 }
