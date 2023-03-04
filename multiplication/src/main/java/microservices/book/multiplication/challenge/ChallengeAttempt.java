@@ -4,7 +4,7 @@ import lombok.*;
 import microservices.book.multiplication.user.User;
 import javax.persistence.*;
 
-/*
+/**
  * Identifies the attempt from a {@link User} to solve a challenge.
  */
 @Entity
