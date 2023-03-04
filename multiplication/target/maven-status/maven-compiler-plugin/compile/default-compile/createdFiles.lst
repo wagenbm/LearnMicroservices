@@ -1,6 +1,6 @@
 microservices\book\multiplication\challenge\ChallengeAttempt.class
-microservices\book\multiplication\challenge\ChallengeGeneratorServiceImpl.class
 microservices\book\multiplication\challenge\Challenge.class
+microservices\book\multiplication\MultiplicationApplication.class
+microservices\book\multiplication\challenge\ChallengeGeneratorServiceImpl.class
 microservices\book\multiplication\challenge\ChallengeGeneratorService.class
 microservices\book\multiplication\user\User.class
-microservices\book\multiplication\MultiplicationApplication.class
