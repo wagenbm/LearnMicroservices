@@ -1,5 +1,6 @@
 package microservices.book.multiplication.challenge;
 
+import microservices.book.multiplication.serviceclients.GamificationServiceClient;
 import microservices.book.multiplication.user.User;
 import microservices.book.multiplication.user.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,9 +30,12 @@ public class ChallengeServiceTest {
     @Mock
     private ChallengeAttemptRepository attemptRepository;
 
+    @Mock
+    private GamificationServiceClient gameClient;
+
     @BeforeEach
     public void setup() {
-        challengeService = new ChallengeServiceImpl(userRepository, attemptRepository);
+        challengeService = new ChallengeServiceImpl(userRepository, attemptRepository, gameClient);
     
         given(attemptRepository.save(any())).will(returnsFirstArg());
     }
@@ -46,6 +50,7 @@ public class ChallengeServiceTest {
 
         verify(userRepository).save(new User("john_doe"));
         verify(attemptRepository).save(resultAttempt);
+        verify(gameClient.sendAttempt(resultAttempt));
 
 
     }
@@ -64,7 +69,31 @@ public class ChallengeServiceTest {
         then(resultAttempt.getUser()).isEqualTo(existingUser);
         verify(userRepository, never()).save(any());
         verify(attemptRepository).save(resultAttempt);
+        verify(gameClient).sendAttempt(resultAttempt);
 
+    }
+
+    @Test
+    public void checkExistingUserTest() {
+        // given
+        given(attemptRepository.save(any()))
+                .will(returnsFirstArg());
+        User existingUser = new User(1L, "john_doe");
+        given(userRepository.findByAlias("john_doe"))
+                .willReturn(Optional.of(existingUser));
+        ChallengeAttemptDTO attemptDTO =
+                new ChallengeAttemptDTO(50, 60, "john_doe", 5000);
+
+        // when
+        ChallengeAttempt resultAttempt =
+                challengeService.verifyAttempt(attemptDTO);
+
+        // then
+        then(resultAttempt.isCorrect()).isFalse();
+        then(resultAttempt.getUser()).isEqualTo(existingUser);
+        verify(userRepository, never()).save(any());
+        verify(attemptRepository).save(resultAttempt);
+        verify(gameClient).sendAttempt(resultAttempt);
     }
 
     @Test

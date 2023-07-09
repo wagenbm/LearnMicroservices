@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import microservices.book.gamification.game.domain.LeaderBoardRow;
-import microservices.book.gamification.game.BadgeRepository;
+//import microservices.book.gamification.game.BadgeRepository;
 
 @Service
 @RequiredArgsConstructor
