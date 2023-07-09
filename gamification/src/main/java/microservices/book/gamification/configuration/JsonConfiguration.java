@@ -7,9 +7,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class JsonConfiguration {
-    
+
     @Bean
     public Module hibernateModule() {
         return new Hibernate5Module();
     }
+
 }

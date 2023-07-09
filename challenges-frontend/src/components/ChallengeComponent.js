@@ -122,6 +122,7 @@ class ChallengeComponent extends React.Component {
                 {this.state.lastAttempts.length > 0 &&
                     <LastAttemptsComponent lastAttempts={this.state.lastAttempts}/>
                 }
+                <LeaderBoardComponent/>
             </div>
         );
     }
