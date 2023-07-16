@@ -1,4 +1,4 @@
-package microservices.book.multiplication.serviceclients;
+/*package microservices.book.multiplication.serviceclients;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -41,4 +41,4 @@ public class GamificationServiceClient {
             return false;
         }
     }
-}
+}*/
