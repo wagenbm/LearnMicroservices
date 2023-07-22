@@ -2,6 +2,7 @@ package microservices.book.multiplication.challenge;
 
 //import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,7 @@ public class ChallengeServiceImpl implements ChallengeService {
     private final ChallengeAttemptRepository attemptRepository;
     private final ChallengeEventPub challengeEventPub;
 
+    @Transactional
     @Override
     public ChallengeAttempt verifyAttempt(ChallengeAttemptDTO attemptDTO) {
 
