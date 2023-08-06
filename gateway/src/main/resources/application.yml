@@ -2,8 +2,6 @@ server:
   port: 8000
 
 spring:
-  config:
-    import: "consul:"
   application:
     name: gateway
   cloud:
@@ -43,3 +41,4 @@ spring:
 logging:
   level:
     org.springframework.cloud.gateway.handler.predicate: trace
+    org.springframework.amqp.rabbit.connection.CachingConnectionFactory: WARN

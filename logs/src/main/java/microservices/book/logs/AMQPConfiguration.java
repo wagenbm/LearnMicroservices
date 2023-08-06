@@ -6,10 +6,12 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AMQPConfiguration {
-    
+
     @Bean
     public TopicExchange logsExchange() {
-        return ExchangeBuilder.topicExchange("logs.topic").durable(true).build();
+        return ExchangeBuilder.topicExchange("logs.topic")
+                .durable(true)
+                .build();
     }
 
     @Bean
@@ -18,8 +20,9 @@ public class AMQPConfiguration {
     }
 
     @Bean
-    public Binding logsBinding(final Queue logsQueue, final TopicExchange logsExchange) {
-        return BindingBuilder.bind(logsQueue).to(logsExchange).with("#");
+    public Binding logsBinding(final Queue logsQueue,
+                               final TopicExchange logsExchange) {
+        return BindingBuilder.bind(logsQueue)
+                .to(logsExchange).with("#");
     }
-
 }
