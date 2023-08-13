@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: gateway
+  config:
+    import: "optional:consul:"
   cloud:
     loadbalancer:
       ribbon:
@@ -12,6 +14,11 @@ spring:
       enabled: true
       discovery:
         query-passing: true
+      config:
+        data-key: application.yml
+        prefix: config
+        format: yaml
+        default-context: defaults
     gateway:
       routes:
         - id: multiplication
